@@ -91,3 +91,7 @@ npm run build
 - `server/tests/` contains the backend API test.
 - `client/src/app/` contains the Angular screen, lead model interfaces, and API service for creating, listing, editing, and deleting leads.
 
+## AI coding tool
+
+I used OpenAI Codex. I directed it to build the lead form and list by providing a familiar structure of my previous projects, keep the implementation straightforward, and connect the app to a validated API backed by MongoDB. I checked the work by reviewing the code, running the backend GET test, trying API requests with `curl`, and building the Angular frontend.
+

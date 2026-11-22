@@ -33,3 +33,38 @@ exports.getLeadById = async (req, res, next) => {
 		next(error);
 	}
 };
+
+exports.updateLead = async (req, res, next) => {
+	try {
+		const { name, email, phone } = req.body;
+		const lead = await Lead.findByIdAndUpdate(
+			req.params.id,
+			{ name, email, phone },
+			{ new: true, runValidators: true },
+		);
+		if (!lead) {
+			return res.status(404).json({
+				success: false,
+				error: { message: 'Lead not found.', details: [] },
+			});
+		}
+		res.json({ success: true, data: lead });
+	} catch (error) {
+		next(error);
+	}
+};
+
+exports.deleteLead = async (req, res, next) => {
+	try {
+		const lead = await Lead.findByIdAndDelete(req.params.id);
+		if (!lead) {
+			return res.status(404).json({
+				success: false,
+				error: { message: 'Lead not found.', details: [] },
+			});
+		}
+		res.json({ success: true, data: { message: 'Lead deleted.' } });
+	} catch (error) {
+		next(error);
+	}
+};

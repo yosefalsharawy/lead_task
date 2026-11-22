@@ -52,3 +52,7 @@ npm test
 ```
 
 The GET leads test uses a mocked model and does not require a running MongoDB instance.
+
+## AI coding tool
+
+OpenAI Codex was used to build and review the backend. It was directed to implement the lead API, validate incoming lead data, store records in MongoDB, and use consistent JSON response shapes. The work was checked by reviewing the changed files, running the GET leads test, and sending local `curl` requests to the API for list, validation, and not-found behavior.
